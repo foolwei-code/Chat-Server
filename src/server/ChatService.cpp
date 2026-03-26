@@ -29,7 +29,6 @@ ChatService::ChatService() {
       {EnMessageType::ADD_FRIEND_MSG,
        std::bind(&ChatService::addFriend, this, std::placeholders::_1,
                  std::placeholders::_2, std::placeholders::_3)});
-  
 }
 // 处理登录业务
 void ChatService::login(const muduo::net::TcpConnectionPtr &conn, json &js,

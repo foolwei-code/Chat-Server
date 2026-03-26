@@ -17,9 +17,10 @@ public:
   std::string getName() { return name_; }
   std::string getPassWord() { return passWord_; }
   std::string getStatus(){return status_;}
-private:
+protected:
   int id_;
   std::string name_;
   std::string passWord_;
   std::string status_;
+
 };
