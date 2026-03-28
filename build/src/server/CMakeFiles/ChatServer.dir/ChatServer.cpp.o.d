@@ -346,9 +346,12 @@ src/server/CMakeFiles/ChatServer.dir/ChatServer.cpp.o: \
  /usr/include/c++/8/bits/fs_ops.h /usr/include/c++/8/numeric \
  /usr/include/c++/8/bits/stl_numeric.h /usr/include/c++/8/iomanip \
  /usr/include/c++/8/any /root/Chat-Server/include/server/ChatService.hpp \
- /root/Chat-Server/include/server/FriendModel.hpp \
- /root/Chat-Server/include/server/User.hpp \
- /root/Chat-Server/include/server/UserModel.hpp \
+ /root/Chat-Server/include/server/model/FriendModel.hpp \
+ /root/Chat-Server/include/server/model/User.hpp \
+ /root/Chat-Server/include/server/model/UserModel.hpp \
  /root/Chat-Server/include/public.hpp /usr/include/c++/8/mutex \
  /usr/include/c++/8/bits/std_mutex.h \
- /root/Chat-Server/include/server/offLineMessageModel.hpp
+ /root/Chat-Server/include/server/model/offLineMessageModel.hpp \
+ /root/Chat-Server/include/server/model/groupModel.hpp \
+ /root/Chat-Server/include/server/model/group.hpp \
+ /root/Chat-Server/include/server/model/groupUser.hpp

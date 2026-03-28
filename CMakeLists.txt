@@ -12,6 +12,7 @@ include_directories(${PROJECT_SOURCR_DIR}/include/client)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/thirdparty)
 include_directories(${PROJECT_SOURCE_DIR}/include/server/database)
+include_directories(${PROJECT_SOURCE_DIR}/include/server/model)
 #链接的库文件所在的路径
 link_directories(/usr/lib64/mysql/)
 #加载子目录

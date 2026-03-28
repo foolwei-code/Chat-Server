@@ -1,7 +1,7 @@
 src/server/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /root/Chat-Server/src/server/ChatService.cpp /usr/include/stdc-predef.h \
  /root/Chat-Server/include/server/ChatService.hpp \
- /root/Chat-Server/include/server/FriendModel.hpp \
+ /root/Chat-Server/include/server/model/FriendModel.hpp \
  /usr/include/c++/8/vector /usr/include/c++/8/bits/stl_algobase.h \
  /usr/include/c++/8/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/c++/8/x86_64-redhat-linux/bits/os_defines.h \
@@ -42,8 +42,8 @@ src/server/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/c++/8/bits/functional_hash.h \
  /usr/include/c++/8/bits/range_access.h \
  /usr/include/c++/8/bits/vector.tcc \
- /root/Chat-Server/include/server/User.hpp /usr/include/c++/8/string \
- /usr/include/c++/8/bits/stringfwd.h \
+ /root/Chat-Server/include/server/model/User.hpp \
+ /usr/include/c++/8/string /usr/include/c++/8/bits/stringfwd.h \
  /usr/include/c++/8/bits/char_traits.h /usr/include/c++/8/bits/postypes.h \
  /usr/include/c++/8/cwchar /usr/include/wchar.h \
  /usr/include/bits/libc-header-start.h /usr/include/bits/floatn.h \
@@ -103,7 +103,7 @@ src/server/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/bits/types/error_t.h \
  /usr/include/c++/8/bits/basic_string.tcc \
- /root/Chat-Server/include/server/UserModel.hpp \
+ /root/Chat-Server/include/server/model/UserModel.hpp \
  /root/Chat-Server/thirdparty/json.hpp /usr/include/c++/8/algorithm \
  /usr/include/c++/8/bits/stl_algo.h \
  /usr/include/c++/8/bits/algorithmfwd.h \
@@ -347,6 +347,9 @@ src/server/CMakeFiles/ChatServer.dir/ChatService.cpp.o: \
  /usr/local/include/muduo/net/TcpServer.h \
  /usr/local/include/muduo/base/Atomic.h /usr/include/c++/8/mutex \
  /usr/include/c++/8/bits/std_mutex.h \
- /root/Chat-Server/include/server/offLineMessageModel.hpp \
+ /root/Chat-Server/include/server/model/offLineMessageModel.hpp \
+ /root/Chat-Server/include/server/model/groupModel.hpp \
+ /root/Chat-Server/include/server/model/group.hpp \
+ /root/Chat-Server/include/server/model/groupUser.hpp \
  /usr/local/include/muduo/base/Logging.h \
  /usr/local/include/muduo/base/LogStream.h

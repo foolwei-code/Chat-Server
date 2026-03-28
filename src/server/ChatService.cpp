@@ -77,7 +77,7 @@ void ChatService::login(const muduo::net::TcpConnectionPtr &conn, json &js,
         js["status"] = user.getStatus();
         vec.emplace_back(js.dump());
       }
-      response["friend"]=vec2;
+      response["friend"] = vec2;
     }
     conn->send(response.dump());
   } else {
@@ -169,10 +169,52 @@ void ChatService::oneChat(const muduo::net::TcpConnectionPtr &conn, json &js,
 }
 // 服务器异常，业务处理方法
 void ChatService::reset() { userModel_.resetStatus(); }
+
 // 添加好友业务
-void ChatService::addFriend(const muduo::net::TcpConnectionPtr &conn, json &js, muduo::Timestamp time) {
+void ChatService::addFriend(const muduo::net::TcpConnectionPtr &conn, json &js,
+                            muduo::Timestamp time) {
   int userId = js["id"].get<int>();
   int friendId = js["friendId"].get<int>();
   // 存储好友信息
-  friendModel_.insert(userId,friendId);
+  friendModel_.insert(userId, friendId);
+}
+
+// 创建群组业务
+void ChatService::createGroup(const muduo::net::TcpConnectionPtr &conn,
+                              json &js, muduo::Timestamp time) {
+  int userId = js["id"].get<int>();
+  std::string name{js["groupname"]};
+  std::string desc{js["groupdesc"]};
+
+  // 存储新创建的群组信息
+  Group group{-1, name, desc};
+  if (groupModel_.createGroup(group)) {
+    // 存储群组的创建人信息
+    groupModel_.addGroup(userId, group.getId(), "creator");
+  }
+}
+
+// 加入群组业务
+void ChatService::addGroup(const muduo::net::TcpConnectionPtr &conn, json &js,
+                           muduo::Timestamp time) {
+  int userId = js["id"].get<int>();
+  int groupId = js["groupid"].get<int>();
+  groupModel_.addGroup(userId, groupId, "normal");
+}
+
+// 群聊天业务
+void ChatService::groupChat(const muduo::net::TcpConnectionPtr &conn, json &js,
+                            muduo::Timestamp time) {
+  int userId = js["id"].get<int>();
+  int groupId = js["groupid"].get<int>();
+  std::vector<int> userIdVec = groupModel_.queryGroupUsers(userId, groupId);
+  std::lock_guard<std::mutex> lock{connectionMutex_};
+  for (auto &id : userIdVec) {
+    auto it{userConnectionMap_.find(id)};
+    if (it != userConnectionMap_.end()) {
+      it->second->send(js.dump());
+    } else {
+      offLineMesModel_.insert(id, js.dump());
+    }
+  }
 }
